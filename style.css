@@ -15,9 +15,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-    /* align-content: center; */
-    
-    
+	/* align-content: center; */
 }
 
 header {
@@ -36,13 +34,12 @@ header {
 }
 
 .container {
-    margin-bottom: auto;
-    padding-top: 20px;
+	margin-bottom: auto;
+	padding-top: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	
 }
 
 .input-box {
@@ -50,9 +47,17 @@ header {
 }
 
 .task-area {
-	/* flex-grow: 3; */
+	display: flex;
+	flex-direction: column;
 }
 
+.btn-del {
+	visibility: hidden;
+}
+
+.task-area li:hover .btn-del {
+	visibility: visible;
+}
 footer {
 	/* flex: 0 0 auto; */
 	text-align: center;
