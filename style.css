@@ -1,66 +1,70 @@
 html,
 body {
-	height: 100%;
+    height: 100%;
 }
 
 .wrapper {
-	/* height: 100%;
+    /* height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
     align-content: stretch; */
-
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	/* align-content: center; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* align-content: center; */
 }
 
 header {
-	border-bottom: 1px solid #bdbdbd;
+    border-bottom: 1px solid #bdbdbd;
 }
 
 .caption {
-	width: 100%;
-	text-align: center;
-	background-color: #1e90ff;
+    width: 100%;
+    text-align: center;
+    background-color: #1e90ff;
 }
 
 .subtitle {
-	width: 100%;
-	text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .container {
-	margin-bottom: auto;
-	padding-top: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+    margin-bottom: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .input-box {
-	/* align-self: flex-start; */
+    /* align-self: flex-start; */
 }
 
 .task-area {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .btn-del {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 .task-area li:hover .btn-del {
-	visibility: visible;
+    visibility: visible;
 }
+
 footer {
-	/* flex: 0 0 auto; */
-	text-align: center;
-	background-color: #1e90ff;
-	margin-bottom: 20px;
+    /* flex: 0 0 auto; */
+    text-align: center;
+    background-color: #1e90ff;
+    margin-bottom: 20px;
+}
+
+.task-done {
+    text-decoration: line-through;
 }
