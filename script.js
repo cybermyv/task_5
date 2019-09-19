@@ -50,12 +50,11 @@
         const btn = `<span class="task-action"> <button class="btn-ok">Выполнено</button> <button class="btn-del">Удалить</button> </span>`;
 
         const task = document.createElement("li");
+
         task.innerHTML = id + description + btn;
         task.classList.add("task-row");
 
         if (item.status) task.classList.add("task-done");
-
-
 
         taskList.appendChild(task);
     }
@@ -76,7 +75,7 @@
     listOutput(taskList);
 
 
-    // const st = setNewTask(taskList, newTD);
+
 
     addBtn.addEventListener(
         "click",
@@ -87,15 +86,16 @@
     );
 
     ul.addEventListener('click', event => {
-        const btn = event.target.closest('.btn-ok');
+        const e = event.target;
+        if (e.className === 'btn-ok') {
+            const li = e.closest('li');
+            const id = li.querySelector('.task-id').innerText;
+            const status = li.classList.toggle('task-done');
+            console.log(id, status);
 
-        const id = li.firstChild;
+            taskList[id - 1].status = status;
 
-        console.log(id.te);
-
-        li.classList.add('task-done');
+            localStorage.setItem(taskPath, taskToJson(taskList));
+        }
     })
-
-
-
 })();

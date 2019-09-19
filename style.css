@@ -48,12 +48,16 @@ header {
 .task-area {
     display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    width: 40%;
 }
 
-.btn-del {
+.btn-del,
+.btn-ok {
     visibility: hidden;
 }
 
+.task-area li:hover .btn-ok,
 .task-area li:hover .btn-del {
     visibility: visible;
 }
