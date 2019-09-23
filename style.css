@@ -41,15 +41,62 @@ header {
     justify-content: space-between;
 }
 
+.todo-wrapper {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #F5DEB3;
+    background: #FDF5E6;
+}
+
 .input-box {
-    /* align-self: flex-start; */
+    width: 550px;
+}
+
+.input-box #newTD {
+    width: 400px;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    background: #FDF5E6;
+    margin: 10px;
 }
 
 .task-area {
     display: flex;
+    list-style: none;
     flex-direction: column;
-    border: 1px solid black;
-    width: 40%;
+    width: 550px;
+}
+
+.task-area li {
+    height: 35px;
+    font-size: 24px;
+    line-height: 35px;
+}
+
+.task-id {
+    padding-left: 10px;
+}
+
+.btn-del {
+    float: right;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: url('close.png') no-repeat center;
+    background-size: cover;
+    outline: none;
+}
+
+.btn-ok {
+    float: left;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: url('done.png') no-repeat center;
+    background-size: cover;
+    outline: none;
 }
 
 .btn-del,

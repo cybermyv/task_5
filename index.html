@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Задание 5</title>
 </head>
 
@@ -20,31 +21,34 @@
         </header>
         <main class="container">
 
-            <div class="input-box">
-                <input type="text" id="newTD" maxlength="10" />
-                <button class="addBtn">Добавить задание</button>
-            </div>
+            <div class="todo-wrapper">
+
+                <div class="input-box">
+                    <input type="text" id="newTD" maxlength="30" placeholder="Что нужно сделать?" />
+                    <button class="addBtn">Добавить задание</button>
+                </div>
 
 
-            <ul class="task-area">
-                <li class="task-row">
-                    <span class="task-id">1</span>
-                    <span class="task-description">Task1</span>
-                    <span class="task-action">
-                            <button class="btn-ok">Выполнено</button>
+                <ul class="task-area">
+                    <li class="task-row">
+                        <span class="task-id">1</span>
+                        <span class="task-description">Task1</span>
+                        <span class="task-action">
+                            <button class="btn-ok" ></button>
                             <button class="btn-del">Удалить</button>
                     </span>
-                </li>
+                    </li>
 
-                <li class="task-row">
-                    <span class="task-id">4</span>
-                    <span class="task-description">Task4</span>
-                    <span class="task-action">
+                    <li class="task-row">
+                        <span class="task-id">4</span>
+                        <span class="task-description">Task4</span>
+                        <span class="task-action">
                         <button class="btn-ok">Выполнено</button>
                         <button class="btn-del">Удалить</button>
                     </span>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
 
         </main>
 

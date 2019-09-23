@@ -47,7 +47,7 @@
 
         const id = `<span class="task-id">${item.id}</span> `;
         const description = `<span class="task-description">${item.description}</span> `;
-        const btn = `<span class="task-action"> <button class="btn-ok">Выполнено</button> <button class="btn-del">Удалить</button> </span>`;
+        const btn = `<span class="task-action"> <button class="btn-ok" ></button> <button class="btn-del"></button> </span>`;
 
         const task = document.createElement("li");
 
