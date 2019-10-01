@@ -11,35 +11,37 @@
 
     const taskStorage = window.localStorage;
     const taskPath = "task";
-    const addBtn = document.querySelector(".addBtn");
+    const addBtn = document.querySelector(".btn-add");
     const ul = document.querySelector(".task-area");
     const newTD = document.querySelector("#newTD").value;
 
-
+    //-- handlers
     function taskToJson(task) {
         return JSON.stringify(task);
     }
 
-    function getAllTask() {
-        const task = taskStorage.getItem(taskPath);
-        return JSON.parse(task) || [];
+    function getAllTask(storage) {
+        return JSON.parse(storage) || [];
     }
 
     function lastTaskId(taskList) {
         return taskList.length + 1;
     }
 
+
+
     function setNewTask(taskList) {
         const id = lastTaskId(taskList);
         const value = document.querySelector("#newTD").value;
 
-        const newTask = new Task(id, value);
-        taskList.push(newTask);
+        if (value) {
+            const newTask = new Task(id, value);
+            taskList.push(newTask);
 
-        taskStorage.setItem(taskPath, taskToJson(taskList));
-
-        clearList(ul);
-        listOutput(taskList);
+            taskStorage.setItem(taskPath, taskToJson(taskList));
+            clearList(ul);
+            listOutput(taskList);
+        }
     }
 
     function addTaskRow(item) {
@@ -67,35 +69,55 @@
     }
 
     function clearList(ul) {
-        ul.innerHTML = '';
+        ul.innerHTML = "";
     }
 
-    let taskList = getAllTask();
+    //-- running
+
+
+    let taskList = getAllTask(taskStorage.getItem(taskPath));
 
     listOutput(taskList);
 
-
-
-
     addBtn.addEventListener(
         "click",
-        function() {
+        () => {
             setNewTask(taskList, newTD);
         },
         false
     );
 
-    ul.addEventListener('click', event => {
+    function toggleTask(id, status, taskList) {
+        taskList[id].status = status;
+        const ttj = taskToJson(taskList);
+        localStorage.setItem(taskPath, ttj);
+    }
+
+    function deleteTask(id, tasklist) {
+        console.log(tasklist);
+        const tmpList = taskList.filter(item => item.id !== id + 1);
+        const ttj = taskToJson(tmpList);
+        localStorage.setItem(taskPath, ttj);
+
+        taskList = getAllTask(taskStorage.getItem(taskPath));
+        clearList(ul);
+        listOutput(taskList);
+
+    }
+
+    ul.addEventListener("click", event => {
         const e = event.target;
-        if (e.className === 'btn-ok') {
-            const li = e.closest('li');
-            const id = li.querySelector('.task-id').innerText;
-            const status = li.classList.toggle('task-done');
-            console.log(id, status);
 
-            taskList[id - 1].status = status;
+        const li = e.closest("li");
+        const id = li.querySelector(".task-id").innerText - 1;
 
-            localStorage.setItem(taskPath, taskToJson(taskList));
+        if (e.className === "btn-ok") {
+            const status = li.classList.toggle("task-done");
+            toggleTask(id, status, taskList);
         }
-    })
+
+        if (e.className === "btn-del") {
+            deleteTask(id, taskList);
+        }
+    });
 })();
